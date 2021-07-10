@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @movie.picture.url(:medium) %>
+</p>
+
+<p>
+  <div>
+    <strong>Name:</strong>
+    <%= @movie.name %>
+  </div>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+</p>
+
+<% @movie.comments.each do |comment| %>
+  (<%= comment.author %>): <%= comment.message %>
+  <br />
+<% end %>
+<br />
+
+<%= link_to 'Add Comment', new_movie_comment_path(@movie) %>
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
