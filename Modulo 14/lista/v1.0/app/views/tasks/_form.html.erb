@@ -1,0 +1,32 @@
+<%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, "Título:" %>
+    <%= f.text_field :title, :required => 'required' %>
+  </div>
+
+  <div>
+    <%= f.label :descrition, "Descrição:" %>
+    <%= f.text_area :descrition, :required => 'required' %>
+  </div>
+
+  <div>
+    <%= f.label :completed, "Quando a tarefa foi finalizada:" %>
+    <%= f.date_field :completed, :required => 'required' %>
+  </div>
+
+  <div>
+    <%= f.submit "Salvar Tarefa" %>
+  </div>
+<% end %>
