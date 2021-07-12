@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Editando Tarefa</h3>
+  </div>
+  <div class="panel-body">
+    <%= render 'form', task: @task %>
+    <%= link_to 'Voltar', tasks_path, :class=> "btn btn-primary", :role=> "button" %>
+</div>
